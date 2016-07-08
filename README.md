@@ -86,7 +86,7 @@ Once you do, it may take up to 30 seconds for the Photon to connect. The timeout
 ## liveimu (a.k.a. live accelerometer)
 
 Video Demonstration: 
-[http://youtube.com/NC5X6hTPJmc] (http://youtube.com/NC5X6hTPJmc)
+[https://www.youtube.com/watch?v=NC5X6hTPJmc] (https://www.youtube.com/watch?v=NC5X6hTPJmc)
 
 ![Connection Diagram](bread_imu.jpg)
 
