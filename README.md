@@ -1,7 +1,7 @@
 # localserver
 *Sample node.js server for communicating with a Particle Photon*
 
-The event publish and subscribe feature of the Particle Cloud is easy to use and very effective in most cases. But sometimes you need to transmit more data than is allowed for publishing events. Or maybe you need to do some specialized processing. A local server implemented in node.js is a useful tool in some cases.
+The event publish and subscribe feature of the Particle Cloud is easy-to-use and very effective in most cases. But sometimes you need to transmit more data than is allowed for publishing events. Or maybe you need to do some specialized processing. A server on your home or office network implemented in node.js is a useful tool in some cases.
 
 This sample implements:
 
@@ -19,11 +19,13 @@ These are the three basic steps to connecting:
 
 ![Connection Diagram](diagram.jpg)
 
-* The Photon publishes a devicesRequest to the Particle cloud
+* The Photon publishes a private devicesRequest to the Particle cloud
 * The server subscribes to these requests and responds by calling the devices function on the Photon with the server IP address, server port, and a nonce (number used once)
 * The Photon issues a HTTP POST to the server IP address and port, with an Authorization header containing the nonce. It then keeps the connection open for sending data.
 
 In the examples below we also use another computer web browser to connect to the server. It loads HTML, CSS, and Javascript from that server, and also opens a SSE channel. This channel is hooked to the HTTP POST channel from the Photon, basically allowing the Photon to send data in real time directly to the browser, via the server.
+
+The server is just a computer running node.js. It could be running Windows, Mac OS X or Linux. It could even be something like a Raspberry Pi.
 
 There are two examples here: 
 
@@ -35,11 +37,7 @@ There are two examples here:
 
 This is a simple example that uses a potentiometer 
 
-screen shot
-
-connection picture
-
-video
+![Connection Diagram](bread_graph.jpg)
 
 Wire up the Photon as shown. I have connected the outer connections of a 10K potentiometer to 3V3 and GND. (Any size >= 10K is fine, such as 50K or 100K, as well.) The center connection is connected to A0 (or any analog pin).
 
@@ -50,6 +48,8 @@ Install the node prerequisites. From the top level of the localserver directory:
 ```
 npm install particle-api-js yargs node-persist
 ```
+
+If you don't have git installed, you may need to install that from [http://git-scm.com] (http://git-scm.com) as well.
 
 Log into the Particle cloud:
 
@@ -83,13 +83,12 @@ This example uses server-sent events, which are not supported in Internet Explor
 Once you do, it may take up to 30 seconds for the Photon to connect. The timeout doesn't need to be that long, but it is in the example because otherwise when you're starting and stopping the node server during debugging your Photon serial log would be flooded with error messages.
 
 
-## liveimu
+## liveimu (a.k.a. live accelerometer)
 
-screen shot
+Video Demonstration: 
+[http://youtube.com/NC5X6hTPJmc] (http://youtube.com/NC5X6hTPJmc)
 
-connection picture
-
-video
+![Connection Diagram](bread_imu.jpg)
 
 Wire up the Photon as shown. 
 
@@ -144,7 +143,7 @@ Now you should be able to move your Photon around and you'll see the list of pos
 
 ## Common code
 
-Each server program (livegraph.js, liveimu.js) lives in a node.js file in the localserver directory. It has the initialziation code to enable all of the modules it uses and hooks them together as necessary.
+Each server program (livegraph.js, liveimu.js) lives in a node.js file in the localserver directory. It has the initialization code to enable all of the modules it uses and hooks them together as necessary.
 
 There are 5 different modules in the lib directory:
 
