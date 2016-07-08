@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+body
+{
+background-color:#ffffff;
+max-width:1000px;
+}
+
+p,h1,h2,h3,li,td,div
+{ 
+font-family: helvetica, sans-serif;
+color:#000000;
+font-size: small; 
+}
+
+p
+{
+max-width:1000px;
+}
+
+
+.hidden
+{
+display:none;
+}
