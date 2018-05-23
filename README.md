@@ -49,7 +49,7 @@ Install the node prerequisites. From the top level of the localserver directory:
 npm install particle-api-js yargs node-persist
 ```
 
-If you don't have git installed, you may need to install that from [http://git-scm.com] (http://git-scm.com) as well.
+If you don't have git installed, you may need to install that from [http://git-scm.com](http://git-scm.com) as well.
 
 Log into the Particle cloud:
 
@@ -86,7 +86,7 @@ Once you do, it may take up to 30 seconds for the Photon to connect. The timeout
 ## liveimu (a.k.a. live accelerometer)
 
 Video Demonstration: 
-[https://www.youtube.com/watch?v=NC5X6hTPJmc] (https://www.youtube.com/watch?v=NC5X6hTPJmc)
+[https://www.youtube.com/watch?v=NC5X6hTPJmc](https://www.youtube.com/watch?v=NC5X6hTPJmc)
 
 ![Connection Diagram](bread_imu.jpg)
 
@@ -100,13 +100,15 @@ SCL  D1 (I2C SCL)
 SDA  D0 (I2C SDA)
 ```
 
-Flash the code in the liveimu/liveimu.ino file to the Photon. This example uses the [Adafruit 10-DOF IMU] (https://www.adafruit.com/products/1604) Breakout L3GD20H LSM303 BMP180 so you'll also need to include the `Adafruit_10DOF_IMU` library. It's in the community libraries in Particle Build, also also here on Github: [https://github.com/rickkas7/Adafruit_10DOF_IMU] (https://github.com/rickkas7/Adafruit_10DOF_IMU).
+Flash the code in the liveimu/liveimu.ino file to the Photon. This example uses the [Adafruit 10-DOF IMU](https://www.adafruit.com/products/1604) Breakout L3GD20H LSM303 BMP180 so you'll also need to include the `Adafruit_10DOF_IMU` library. It's in the community libraries in Particle Build, also also here on Github: [https://github.com/rickkas7/Adafruit_10DOF_IMU](https://github.com/rickkas7/Adafruit_10DOF_IMU).
 
 If you haven't already done so, install the node prerequisites. From the top level of the localserver directory:
 
 ```
-npm install particle-api-js yargs node-persist
+npm install particle-api-js yargs node-persist@2.0.11
 ```
+
+Note that you must use node-persist 2.0.x as the 3.0 version removes the sync version of calls that are used here and also requires node 7.6 or later.
 
 If you haven't already done so, log into the Particle cloud:
 
